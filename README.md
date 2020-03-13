@@ -1,6 +1,7 @@
 # Ansible
 Ansible is deploy tool, and easy and quicky deploy muti server
 ## Introduction
+
 1. Ansible Architecture
 2. Inventory
 3. Playbook
@@ -8,6 +9,8 @@ Ansible is deploy tool, and easy and quicky deploy muti server
 5. Tasks
 6. Template
 7. Handler
+8. Galaxy
+
 
 ### Ansible Architecture
 <pre> 
@@ -53,7 +56,32 @@ roles/
 </pre>
 
 ### Inventory
+<pre>
+[atlanta]
+host1
+host2
 
+[raleigh]
+host2
+host3
+
+[southeast:children]
+atlanta
+raleigh
+
+[southeast:vars]
+some_server=foo.southeast.example.com
+halon_system_timeout=30
+self_destruct_countdown=60
+escape_pods=2
+
+[usa:children]
+southeast
+northeast
+southwest
+northwest
+
+</pre>
 ### Playbook
 
 ### Module
